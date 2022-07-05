@@ -1,0 +1,98 @@
+.popular, .top-rated, .upcoming {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+        font-size: large;
+        font-weight: 400;
+        color: $gray;
+        align-items: center;
+    }
+
+    &__image {
+        border-radius: 30px;
+        box-shadow: 0 10px 5px $pink;
+        height: 560px;
+        max-width: 375px;
+        
+    }
+
+    &__title {
+        font-weight: bold;
+        color: black;
+        font-size: larger;
+    }
+
+    &__date {
+        padding-top: 10px;
+    }
+}
+
+.circle {
+    background-color: rgba(252, 202, 211, 1);
+    width: 40px;
+    height: 40px;
+    position: relative;
+    top: -560px;
+    right: -170px;
+    border-radius: 50%;
+    z-index: 10;
+    padding-top: 10px;
+  
+}
+
+
+@media (min-width:629px) {
+    .popular, .top-rated, .upcoming {
+        flex-wrap: nowrap;
+        overflow: scroll;
+        overflow-y: hidden;
+
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            padding: 2px 0;
+            background-color: #4040401f;
+          }
+          
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+          }
+          
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            box-shadow: inset 0 0 6px rgb(0 0 0 / 30%);
+            background-color: #737272;
+            
+          }
+
+        &__item {
+            width: 300px;
+            padding: 10px;
+            align-items: baseline;
+        }
+
+        &__image {
+            box-shadow: 10px 5px 5px $pink;
+            height: 420px;
+        }
+    }
+    .circle {  
+        top: -430px;
+        right: -255px;
+    }
+
+    .upcoming {
+        background-image: url(https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg);
+        background-position: 50% 400px;
+        background-size: 1400px;
+        background-repeat: no-repeat;
+        
+    }
+}

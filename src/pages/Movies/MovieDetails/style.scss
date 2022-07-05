@@ -1,0 +1,40 @@
+@import '../variables';
+
+.details {
+    display: flex;
+    padding: 50px 0;
+    font-size: 26px;
+
+    &__about {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 65px;
+    }
+    &__image {
+        width: 500px;
+        border-radius: 30px;
+    } 
+    &__vote {
+        font-size: 50px;
+        padding-top: 10px;
+        color: $pink;
+        text-shadow: 1px 2px 0px $gray;
+        padding-bottom: 30px;
+    }
+    &__title {
+        font-weight: bold;
+        font-size: 55px;
+
+    }
+    &__tagline {
+        padding-top: 20px;   
+    }
+    &__date {
+        color: $gray;
+    }
+    &__overview {
+        padding-top: 30px;
+        color: $gray;
+    }
+}
