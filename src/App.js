@@ -1,17 +1,12 @@
 import {Provider} from "react-redux";
 
 import store from './store/configureStore';
-
-// import Todos from './components/TodosRedux';
-import Movies from './pages/Movies';
-import MoviesExample from "./pages/RoutesMovies/component";
+import Movies from "./pages/RoutesMovies/component";
+import './pages/Movies/index.scss';
 
 const App = () => (
   <Provider store={store}>
-    <div>
-      {/* <Movies/> */}
-      <MoviesExample/>
-    </div>
+      <Movies/>
   </Provider>
 );
 

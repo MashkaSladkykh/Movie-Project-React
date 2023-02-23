@@ -5,9 +5,9 @@ import {selectPopularMovies, selectTopRatedMovies, selectUpcomingMovies, selectS
 import {setPopularMovies, setTopRatedMovies, setUpcomingMovies, setSearchQuery, searchMovie} from '../../../store/movies/actions';
 
 import {generateApiUrl, generateImageUrl, convertDate} from '../utils';
-
 import Header from "./Header";
 import { NavLink } from "react-router-dom";
+import Search from "../Search";
 
 const Home = ({popularMovies, topRatedMovies, upcomingMovies, setPopularMovies, setTopRatedMovies, setUpcomingMovies, searchQuery, searshedMovies, searchMovie, setSearchQuery}) => {
   
@@ -19,12 +19,12 @@ const Home = ({popularMovies, topRatedMovies, upcomingMovies, setPopularMovies, 
         console.log(data, 'data')
       })
   }, [])
+
   useEffect(() => {
     fetch(generateApiUrl('top_rated'))
       .then(res => res.json())
       .then(data => {
         setTopRatedMovies(data.results);
-        console.log(data, 'data2')
       })
   }, [])
 
@@ -33,28 +33,8 @@ const Home = ({popularMovies, topRatedMovies, upcomingMovies, setPopularMovies, 
       .then(res => res.json())
       .then(data => {
         setUpcomingMovies(data.results);
-        console.log(data, 'data3')
       })
   }, [])
-
-
-  // const [fields, setFields] = useState({
-  //   input: '',
-  // });
-
-  // const handleSubmit = event => {
-  //   event.preventDefault();
-  //   if(fields.length == 0) return;
-
-  // }
-
-  // const handleChangeFields = ({target}) => {
-  //   const value = target.value
-  //   setFields({
-  //     ...fields,
-  //     input:value,
-  //   })
-  // }
 
   return (
     <div>
@@ -63,10 +43,7 @@ const Home = ({popularMovies, topRatedMovies, upcomingMovies, setPopularMovies, 
         <div className="intro">
             <h1>Welcome.</h1>
             <p className="desc">Millions of movies, TV shows and people to discover. Explore now.</p>
-            <form action="/search" className="search" >
-                <label><input type="text" placeholder="Search for a movie, tv show, person..." /></label>
-                <input type="submit" className="search__btn" value="Search"/>
-            </form>
+            <Search/>
         </div>
         <h2>What's popular now?</h2>
         <div className="popular">

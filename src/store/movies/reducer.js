@@ -20,7 +20,7 @@ export const movies = (state = initialState, action) => {
       case SEARCHED_MOVIES:
         return {
           ...state,
-          searchedMovies: [...action.payload],
+          searchedMovies: action.payload,
         }
     case SET_POPULAR_MOVIES:
       return {

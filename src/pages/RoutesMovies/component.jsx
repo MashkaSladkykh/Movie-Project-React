@@ -2,19 +2,14 @@ import {Link, Route, Routes} from "react-router-dom";
 
 import Home from '../Movies/Home';
 import Movie from '../Movies/MovieDetails'
-import Search  from "../Movies/Search";
-import Expenses from '../../routes/Expenses';
-import Invoices from '../../routes/Invoices';
-import Invoice from '../../routes/Invoices/Invoice';
+import {SearchResult}  from "../Movies/Search/SearchResult/component";
 
-
-const MoviesExample = () => {
+const Movies = () => {
   return (
     <Routes>
       <Route path="/" element={<Home/>}/>
-      <Route path=":movieId" element={<Movie/>}/>
-      
-      <Route path=':search' element={<Search/>}/>
+      <Route path=":movieId" element={<Movie/>}/> 
+      <Route path=':search' element={<SearchResult/>}/>
 
       <Route
         path="*"
@@ -29,4 +24,4 @@ const MoviesExample = () => {
   )
 }
 
-export default MoviesExample;
+export default Movies;

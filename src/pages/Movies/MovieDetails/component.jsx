@@ -6,18 +6,17 @@ import {setPopularMovies, setTopRatedMovies, setUpcomingMovies, setMovieDetails,
 
 import {generateApiUrl, generateImageUrl, convertDate, convertMinutes} from '../utils';
 
-import { Link , useParams} from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import Header from "../Home/Header";
-import { renderErrors } from "../Errors/component";
 import "./style.scss"
 
 
 const Movie = ({movieDetails, setMovieDetails, movieCast, setMovieCast}) => {
-  let { movieId } = useParams();
-  let [path, hash] = movieId.split('=')
- 
+  let location = useLocation();
+  let [ , movieId] = location.pathname.split('=');
+
   useEffect(() => {
-    fetch(generateApiUrl(hash))
+    fetch(generateApiUrl(movieId))
       .then(res => res.json())
       .then(data => {
         setMovieDetails(data);
@@ -26,16 +25,13 @@ const Movie = ({movieDetails, setMovieDetails, movieCast, setMovieCast}) => {
   }, [])
 
   useEffect(() => {
-    fetch(generateApiUrl(`${hash}/credits`))
+    fetch(generateApiUrl(`${movieId}/credits`))
       .then(res => res.json())
       .then(data => {
         setMovieCast(data);
         console.log(data, 'data')
       })
   }, [])
-console.log (movieCast)
-
-
 
 return (
   <>
